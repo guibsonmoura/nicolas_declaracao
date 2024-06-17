@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabéns</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            max-width: 90%;
+            margin: auto;
+        }
+        .poema, .texto, .coracao {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: left;
+        }
+        .coracao {
+            text-align: center;
+            color: #800080;
+            font-size: 24px;
+        }
+        .coracao::before {
+            content: "💜";
+            display: block;
+            font-size: 64px;
+            animation: pulse 1s infinite;
+        }
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.9); 
+        }
+        .modal-content {
+            background-color: #111;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="poema" onclick="showModal('poema')">
+            <p>Nove meses se passaram, meu amor<br>
+            Desde que nos encontramos, que sorte<br>
+            Tua presença é um eterno esplendor<br>
+            Nosso laço é forte, nada o corte</p>
+            
+            <p>Teu sorriso ilumina meu caminho<br>
+            Como estrela que guia na escuridão<br>
+            Em teus braços, encontrei meu ninho<br>
+            Teu carinho é minha salvação</p>
+            
+            <p>Cada dia ao teu lado é uma festa<br>
+            Um brinde à alegria, à cumplicidade<br>
+            Juntos, somos a dupla que não se detesta<br>
+            No amor, encontramos a verdadeira liberdade</p>
+        </div>
+        <div class="texto" onclick="showModal('texto')">
+            <p>E aí, princesa</p>
+            
+            <p>Hoje completamos 9 meses juntos, acredita? Kkkkk parece que foi ontem que a gente se conheceu e começou essa loucura. Tu és demais, sabia? Sempre me fazendo rir com tuas bobagens e transformando qualquer momento chato em algo divertido</p>
+            
+            <p>Lembra da vez que tentamos cozinhar juntos? Kkkkk quase incendiamos a cozinha! E aquela vez que tentamos fazer uma maratona de filmes de terror, mas acabamos rindo mais do que assustados? Kkkkk somos uma dupla e tanto</p>
+            
+            <p>Tu és minha parceira de aventuras, minha cúmplice nas trapalhadas e a razão de tantas risadas. Teu senso de humor é contagiante e eu não trocaria isso por nada</p>
+            
+            <p>Então, que venham mais risadas, mais momentos doidos e mais 9 meses (e muito mais) de pura diversão. Kkkkk</p>
+            
+            <p>Te amo, sua doida</p>
+            
+            <p>Nycollas</p>
+        </div>
+        <div class="coracao" onclick="showModal('coracao')">
+            Parabéns
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(section) {
+            let content = '';
+            if (section === 'poema') {
+                content = `<p>Nove meses se passaram, meu amor<br>
+                            Desde que nos encontramos, que sorte<br>
+                            Tua presença é um eterno esplendor<br>
+                            Nosso laço é forte, nada o corte</p>
+                            
+                            <p>Teu sorriso ilumina meu caminho<br>
+                            Como estrela que guia na escuridão<br>
+                            Em teus braços, encontrei meu ninho<br>
+                            Teu carinho é minha salvação</p>
+                            
+                            <p>Cada dia ao teu lado é uma festa<br>
+                            Um brinde à alegria, à cumplicidade<br>
+                            Juntos, somos a dupla que não se detesta<br>
+                            No amor, encontramos a verdadeira liberdade</p>`;
+            } else if (section === 'texto') {
+                content = `<p>E aí, princesa</p>
+                            <p>Hoje completamos 9 meses juntos, acredita? Kkkkk parece que foi ontem que a gente se conheceu e começou essa loucura. Tu és demais, sabia? Sempre me fazendo rir com tuas bobagens e transformando qualquer momento chato em algo divertido</p>
+                            <p>Lembra da vez que tentamos cozinhar juntos? Kkkkk quase incendiamos a cozinha! E aquela vez que tentamos fazer uma maratona de filmes de terror, mas acabamos rindo mais do que assustados? Kkkkk somos uma dupla e tanto</p>
+                            <p>Tu és minha parceira de aventuras, minha cúmplice nas trapalhadas e a razão de tantas risadas. Teu senso de humor é contagiante e eu não trocaria isso por nada</p>
+                            <p>Então, que venham mais risadas, mais momentos doidos e mais 9 meses (e muito mais) de pura diversão. Kkkkk</p>
+                            <p>Te amo, sua doida</p>
+                            <p>Nycollas</p>`;
+            } else if (section === 'coracao') {
+                content = 'Parabéns';
+            }
+            document.getElementById('modal-text').innerHTML = content;
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
